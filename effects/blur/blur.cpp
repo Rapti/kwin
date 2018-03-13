@@ -171,7 +171,7 @@ void BlurEffect::initBlurStrengthValues()
     // This function creates an array of blur strength values that are evenly distributed
 
     // The range of the slider on the blur settings UI
-    int numOfBlurSteps = 15;
+    int numOfBlurSteps = 100;
     int remainingSteps = numOfBlurSteps;
 
     /*
@@ -510,8 +510,6 @@ bool BlurEffect::shouldBlur(const EffectWindow *w, int mask, const WindowPaintDa
     if (!m_renderTargetsValid || !m_shader || !m_shader->isValid())
         return false;
 
-    if (effects->activeFullScreenEffect() && !w->data(WindowForceBlurRole).toBool())
-        return false;
 
     if (w->isDesktop())
         return false;
